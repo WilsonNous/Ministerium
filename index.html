@@ -3,155 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ministerium • Catálogo de Pregadores e Músicos</title>
+    <title>Ministerium • Catálogo</title>
 
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            margin: 0;
-            font-family: "Inter", Arial, sans-serif;
-            background: #f5f5f5;
+            font-family: "Inter", sans-serif;
+            background: #f5f7ff;
+            transition: 0.3s;
+            padding-top: 70px;
         }
-        header {
-            background: #1e1e2f;
-            padding: 25px;
+        body.dark { background: #0d0d12; color: #eee; }
+
+        /* MENU */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            background: #1f1d2e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px;
             color: white;
-            text-align: center;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-        h1 {
-            margin: 0;
-            font-weight: 600;
+        nav a {
+            color: #b7b9ff;
+            text-decoration: none;
+            margin: 0 10px;
         }
+        nav button {
+            background: #4a3df6;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+        }
+
         .container {
-            max-width: 1080px;
+            max-width: 1100px;
             margin: 30px auto;
             padding: 0 20px;
         }
+
         .search-bar {
             display: flex;
             gap: 10px;
-            margin-bottom: 20px;
             flex-wrap: wrap;
+            margin-bottom: 25px;
         }
-        .search-bar input, .search-bar select {
-            flex: 1;
+        input, select {
             padding: 12px;
-            border-radius: 8px;
+            border-radius: 10px;
             border: 1px solid #ccc;
+            width: 100%;
+            flex: 1;
         }
+
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
             gap: 20px;
         }
+
         .card {
             background: white;
+            border-radius: 14px;
             padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform .2s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: 0.2s;
         }
-        .card:hover {
-            transform: translateY(-4px);
+        body.dark .card {
+            background: #1a1a22;
+            box-shadow: 0 4px 20px rgba(255,255,255,0.05);
         }
+
+        .card:hover { transform: translateY(-5px); }
+
         .card img {
             width: 100%;
-            height: 180px;
+            height: 170px;
             border-radius: 10px;
             object-fit: cover;
         }
+
         .tag {
+            background: #e0e7ff;
+            color: #4536ff;
+            padding: 5px 12px;
             display: inline-block;
-            background: #e2e8ff;
-            color: #364fc7;
-            padding: 5px 10px;
+            border-radius: 8px;
             margin-right: 5px;
-            margin-top: 5px;
-            border-radius: 6px;
+            margin-top: 8px;
             font-size: 12px;
         }
-        .contact {
-            margin-top: 10px;
-            font-size: 14px;
-        }
+
         .btn {
-            display: inline-block;
-            padding: 10px 18px;
-            background: #364fc7;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            margin-top: 12px;
-        }
-        footer {
+            display: block;
+            margin-top: 15px;
+            padding: 12px;
             text-align: center;
-            padding: 25px;
-            background: #1e1e2f;
+            background: #4a3df6;
             color: white;
-            margin-top: 30px;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        /* FOOTER FIXO */
+        footer {
+            margin-top: 40px;
+            background: #1f1d2e;
+            color: #bdbdff;
+            padding: 20px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Ministerium</h1>
-    <p>Catálogo de Pregadores e Músicos</p>
-</header>
+<nav>
+    <div><strong>Ministerium</strong></div>
+    <div>
+        <a href="index.html">Catálogo</a>
+        <a href="pre-cadastro.html">Pré-Cadastro</a>
+        <a href="admin.html">Admin</a>
+    </div>
+    <button onclick="toggleDarkMode()">🌙</button>
+</nav>
 
 <div class="container">
 
+    <h2 style="margin-bottom: 15px;">Catálogo</h2>
+
     <div class="search-bar">
-        <input type="text" placeholder="Buscar por nome, banda, tema ou estilo...">
+        <input type="text" placeholder="Buscar por nome, tema, estilo...">
         <select>
             <option value="">Tipo</option>
-            <option value="pregador">Pregador</option>
-            <option value="musico">Músico / Banda</option>
+            <option>Pregador</option>
+            <option>Músico</option>
+            <option>Banda</option>
         </select>
         <select>
             <option value="">Classificação</option>
-            <option value="jovens">Jovens</option>
-            <option value="casais">Casais</option>
-            <option value="geral">Igreja Geral</option>
-            <option value="louvor">Louvor / Adoração</option>
+            <option>Casais</option>
+            <option>Jovens</option>
+            <option>Igreja Geral</option>
+            <option>Louvor</option>
         </select>
     </div>
 
     <div class="card-grid">
 
-        <!-- EXEMPLO 1 -->
         <div class="card">
-            <img src="https://source.unsplash.com/random/400x300?preacher" alt="">
+            <img src="https://source.unsplash.com/random/400x300?preacher">
             <h3>Pr. João Silva</h3>
-            <p>Palestrante para jovens e casais.</p>
-
+            <p>Especialista em casais e jovens.</p>
             <span class="tag">Casais</span>
             <span class="tag">Jovens</span>
-
-            <div class="contact">📞 (48) 99999-0000</div>
-
-            <a href="perfil.html?id=1" class="btn">Ver Perfil</a>
+            <a class="btn" href="perfil.html">Ver Perfil</a>
         </div>
 
-        <!-- EXEMPLO 2 -->
         <div class="card">
-            <img src="https://source.unsplash.com/random/400x300?band" alt="">
+            <img src="https://source.unsplash.com/random/400x300?gospel-music">
             <h3>Banda Luz do Rei</h3>
-            <p>Louvor congregacional e acústico.</p>
-
+            <p>Louvor congregacional.</p>
             <span class="tag">Louvor</span>
             <span class="tag">Acústico</span>
-
-            <div class="contact">📞 (11) 90000-0000</div>
-
-            <a href="perfil.html?id=2" class="btn">Ver Perfil</a>
+            <a class="btn" href="perfil.html">Ver Perfil</a>
         </div>
 
     </div>
 </div>
 
 <footer>
-    Ministerium • Conectando ministérios ao propósito
+    Ministerium © 2025 — Conectando ministérios ao propósito
 </footer>
+
+<script>
+function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+}
+</script>
 
 </body>
 </html>
