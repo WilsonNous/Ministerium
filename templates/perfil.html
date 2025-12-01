@@ -4,14 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perfil • Ministerium</title>
+    <title>Perfis • Ministerium</title>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: "Inter", sans-serif;
@@ -20,11 +16,7 @@
             padding-top: 80px;
             transition: 0.3s;
         }
-
-        body.dark {
-            background: #0d0d12;
-            color: #eee;
-        }
+        body.dark { background: #0d0d12; color: #eee; }
 
         /* MENU */
         nav {
@@ -39,7 +31,7 @@
             padding: 0 25px;
             color: white;
             z-index: 999;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         nav a {
@@ -67,15 +59,16 @@
             background: white;
             padding: 25px;
             border-radius: 14px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             display: flex;
             gap: 25px;
             flex-wrap: wrap;
+            margin-bottom: 60px;
         }
 
         body.dark .profile-box {
             background: #1a1a22;
-            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.04);
+            box-shadow: 0 4px 20px rgba(255,255,255,0.04);
         }
 
         .profile-box img {
@@ -109,19 +102,13 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
-
-        body.dark .agenda {
-            background: #1a1a22;
-        }
+        body.dark .agenda { background: #1a1a22; }
 
         .agenda-item {
             padding: 12px;
             border-bottom: 1px solid #ddd;
         }
-
-        body.dark .agenda-item {
-            border-color: #333;
-        }
+        body.dark .agenda-item { border-color: #333; }
 
         footer {
             background: #1f1d2e;
@@ -130,78 +117,154 @@
             text-align: center;
             margin-top: 40px;
         }
+
     </style>
 </head>
 
 <body>
 
-    <nav>
-        <div><strong>Ministerium</strong></div>
+<nav>
+    <div><strong>Ministerium</strong></div>
+    <div>
+        <a href="{{ url_for('home') }}">Catálogo</a>
+        <a href="{{ url_for('pre_cadastro') }}">Pré-Cadastro</a>
+        <a href="{{ url_for('admin') }}">Admin</a>
+    </div>
+    <button onclick="toggleDarkMode()">🌙</button>
+</nav>
+
+<div class="container">
+
+    <!-- ======================== PERFIL 1 ======================== -->
+    <div class="profile-box">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=60">
         <div>
-            <a href="{{ url_for('home') }}">Catálogo</a>
-            <a href="{{ url_for('pre_cadastro') }}">Pré-Cadastro</a>
-            <a href="{{ url_for('admin') }}">Admin</a>
-        </div>
-        <button onclick="toggleDarkMode()">🌙</button>
-    </nav>
+            <h2>Pr. João Silva</h2>
+            <p style="margin-top: 10px;">Especialista em casais e jovens, conferencista há 15 anos no Brasil.</p>
 
-    <div class="container">
+            <strong style="display: block; margin-top: 15px;">Temáticas:</strong>
+            <span class="tag">Casais</span>
+            <span class="tag">Jovens</span>
 
-        <div class="profile-box">
-            <img src="https://source.unsplash.com/random/400x500?pastor" />
+            <strong style="display: block; margin-top: 20px;">Contato:</strong>
+            📞 (48) 99999-0000<br>
+            ✉ joao@example.com<br>
 
-            <div>
-                <h2>Pr. João Silva</h2>
-                <p style="margin-top: 10px;">
-                    Conferencista, palestrante de jovens e casais, atuando há 15 anos em
-                    igrejas e eventos no Brasil.
-                </p>
-
-                <strong style="display: block; margin-top: 15px;">Temáticas:</strong>
-                <span class="tag">Casais</span>
-                <span class="tag">Jovens</span>
-                <span class="tag">Família</span>
-
-                <strong style="display: block; margin-top: 20px;">Contato:</strong>
-                📞 (48) 99999-0000<br />
-                ✉ joao@example.com<br />
-
-                <a href="https://wa.me/5548999990000" style="
-                        display: inline-block;
-                        margin-top: 15px;
-                        background: #4a3df6;
-                        padding: 10px 16px;
-                        color: white;
-                        text-decoration: none;
-                        border-radius: 10px;
-                    ">Falar no WhatsApp</a>
-            </div>
-        </div>
-
-        <h3 style="margin-top: 30px;">Vídeo de Apresentação</h3>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
-
-        <h3 style="margin-top: 30px;">Agenda Simulada</h3>
-        <div class="agenda">
-            <div class="agenda-item">
-                📅 12/01/2025 — Congresso de Jovens — Igreja Assembleia da Paz
-            </div>
-            <div class="agenda-item">
-                📅 26/01/2025 — Seminário de Casais — Igreja Mais de Cristo
-            </div>
-            <div class="agenda-item">
-                📅 10/02/2025 — Culto da Família — Comunidade Cristo Vive
-            </div>
+            <a href="https://wa.me/5548999990000" class="btn" style="
+                display: inline-block; margin-top: 15px;
+                background: #4a3df6; padding: 10px 16px; color: white;
+                text-decoration: none; border-radius: 10px;">Falar no WhatsApp</a>
         </div>
     </div>
 
-    <footer>Ministerium © 2025 — Conectando ministérios ao propósito</footer>
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+    <div class="agenda">
+        <div class="agenda-item">📅 12/01/2025 — Congresso de Jovens</div>
+        <div class="agenda-item">📅 26/01/2025 — Seminário de Casais</div>
+        <div class="agenda-item">📅 10/02/2025 — Culto da Família</div>
+    </div>
 
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle("dark");
-        }
-    </script>
+
+    <!-- ======================== PERFIL 2 ======================== -->
+    <div class="profile-box">
+        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=60">
+        <div>
+            <h2>Banda Luz do Rei</h2>
+            <p style="margin-top: 10px;">Louvor congregacional com foco em adoração e ambiente profético.</p>
+
+            <strong style="display: block; margin-top: 15px;">Estilo:</strong>
+            <span class="tag">Louvor</span>
+            <span class="tag">Acústico</span>
+
+            <strong style="display: block; margin-top: 20px;">Contato:</strong>
+            📞 (11) 90000-0000<br>
+            ✉ banda@example.com<br>
+
+            <a href="https://wa.me/5511900000000" class="btn" style="
+                display: inline-block; margin-top: 15px;
+                background: #4a3df6; padding: 10px 16px; color: white;
+                text-decoration: none; border-radius: 10px;">Falar no WhatsApp</a>
+        </div>
+    </div>
+
+    <iframe src="https://www.youtube.com/embed/oHg5SJYRHA0"></iframe>
+    <div class="agenda">
+        <div class="agenda-item">📅 05/02/2025 — Noite de Louvor</div>
+        <div class="agenda-item">📅 19/02/2025 — Conferência de Adoração</div>
+    </div>
+
+
+    <!-- ======================== PERFIL 3 ======================== -->
+    <div class="profile-box">
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=60">
+        <div>
+            <h2>Pr. Daniel Moreira</h2>
+            <p style="margin-top: 10px;">Focado em cura interior, restauração e libertação.</p>
+
+            <strong style="display: block; margin-top: 15px;">Temáticas:</strong>
+            <span class="tag">Cura</span>
+            <span class="tag">Libertação</span>
+
+            <strong style="display: block; margin-top: 20px;">Contato:</strong>
+            📞 (47) 98888-1111<br>
+            ✉ daniel@example.com<br>
+
+            <a href="https://wa.me/5547988881111" class="btn" style="
+                display: inline-block; margin-top: 15px;
+                background: #4a3df6; padding: 10px 16px; color: white;
+                text-decoration: none; border-radius: 10px;">Falar no WhatsApp</a>
+        </div>
+    </div>
+
+
+    <!-- ======================== PERFIL 4 ======================== -->
+    <div class="profile-box">
+        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=60">
+        <div>
+            <h2>Ministério Som da Vida</h2>
+            <p style="margin-top: 10px;">Louvor espontâneo, ministrando profundidade e intimidade com Deus.</p>
+
+            <strong style="display: block; margin-top: 15px;">Estilos:</strong>
+            <span class="tag">Adoração</span>
+            <span class="tag">Espontâneo</span>
+        </div>
+    </div>
+
+
+    <!-- ======================== PERFIL 5 ======================== -->
+    <div class="profile-box">
+        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=60">
+        <div>
+            <h2>Pr. Marcos Almeida</h2>
+            <p style="margin-top: 10px;">Prega mensagens bíblicas profundas com foco na família.</p>
+
+            <strong style="display: block; margin-top: 15px;">Temáticas:</strong>
+            <span class="tag">Família</span>
+            <span class="tag">Doutrina</span>
+        </div>
+    </div>
+
+
+    <!-- ======================== PERFIL 6 ======================== -->
+    <div class="profile-box">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=60">
+        <div>
+            <h2>Banda Aliança</h2>
+            <p style="margin-top: 10px;">Louvor jovem, pop gospel e ministrações dinâmicas.</p>
+
+            <strong style="display: block; margin-top: 15px;">Estilos:</strong>
+            <span class="tag">Pop Gospel</span>
+            <span class="tag">Jovens</span>
+        </div>
+    </div>
+
+</div>
+
+<footer>Ministerium © 2025 — Conectando ministérios ao propósito</footer>
+
+<script>
+function toggleDarkMode() { document.body.classList.toggle("dark"); }
+</script>
+
 </body>
-
 </html>
