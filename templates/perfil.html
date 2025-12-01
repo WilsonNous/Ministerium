@@ -138,9 +138,9 @@
     <nav>
         <div><strong>Ministerium</strong></div>
         <div>
-            <a href="index.html">Catálogo</a>
-            <a href="pre-cadastro.html">Pré-Cadastro</a>
-            <a href="admin.html">Admin</a>
+            <a href="{{ url_for('home') }}">Catálogo</a>
+            <a href="{{ url_for('pre_cadastro') }}">Pré-Cadastro</a>
+            <a href="{{ url_for('admin') }}">Admin</a>
         </div>
         <button onclick="toggleDarkMode()">🌙</button>
     </nav>
