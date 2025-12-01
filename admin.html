@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin • Ministerium</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f5f7ff;
+            padding-top: 80px;
+            transition: 0.3s;
+        }
+
+        body.dark {
+            background: #0d0d12;
+            color: #eee;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            background: #1f1d2e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px;
+            color: white;
+            z-index: 999;
+        }
+
+        nav a {
+            color: #b7b9ff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav button {
+            background: #4a3df6;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 25px auto;
+            padding: 20px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 260px;
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark .card {
+            background: #1a1a22;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+
+        body.dark table td,
+        body.dark table th {
+            border-color: #333;
+        }
+
+        footer {
+            background: #1f1d2e;
+            padding: 20px;
+            color: #bdbdff;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            background: #4a3df6;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div><strong>Ministerium</strong></div>
+        <div>
+            <a href="index.html">Catálogo</a>
+            <a href="pre-cadastro.html">Pré-Cadastro</a>
+            <a href="admin.html">Admin</a>
+        </div>
+        <button onclick="toggleDarkMode()">🌙</button>
+    </nav>
+
+    <div class="container">
+        <h2>Painel Administrativo</h2>
+
+        <div class="stats">
+            <div class="card">
+                <h3>Pregadores</h3>
+                <p style="font-size: 26px; margin-top: 5px;">12 cadastrados</p>
+            </div>
+
+            <div class="card">
+                <h3>Músicos/Bandas</h3>
+                <p style="font-size: 26px; margin-top: 5px;">8 cadastrados</p>
+            </div>
+
+            <div class="card">
+                <h3>Pré-cadastros pendentes</h3>
+                <p style="font-size: 26px; margin-top: 5px;">3 aguardando</p>
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Contato</th>
+                <th>Ação</th>
+            </tr>
+
+            <tr>
+                <td>Pr. João Silva</td>
+                <td>Pregador</td>
+                <td>(48) 99999-0000</td>
+                <td>
+                    <a href="perfil.html" class="btn">Ver</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Banda Luz do Rei</td>
+                <td>Banda</td>
+                <td>(11) 90000-0000</td>
+                <td>
+                    <a href="perfil.html" class="btn">Ver</a>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+    <footer>Ministerium © 2025 — Conectando ministérios ao propósito</footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark");
+        }
+    </script>
+</body>
+
+</html>
