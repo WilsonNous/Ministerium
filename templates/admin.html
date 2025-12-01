@@ -121,9 +121,9 @@
     <nav>
         <div><strong>Ministerium</strong></div>
         <div>
-            <a href="index.html">Catálogo</a>
-            <a href="pre-cadastro.html">Pré-Cadastro</a>
-            <a href="admin.html">Admin</a>
+            <a href="{{ url_for('home') }}">Catálogo</a>
+            <a href="{{ url_for('pre_cadastro') }}">Pré-Cadastro</a>
+            <a href="{{ url_for('admin') }}">Admin</a>
         </div>
         <button onclick="toggleDarkMode()">🌙</button>
     </nav>
@@ -161,7 +161,7 @@
                 <td>Pregador</td>
                 <td>(48) 99999-0000</td>
                 <td>
-                    <a href="perfil.html" class="btn">Ver</a>
+                    <a href="{{ url_for('perfil') }}" class="btn">Ver</a>
                 </td>
             </tr>
 
@@ -170,7 +170,7 @@
                 <td>Banda</td>
                 <td>(11) 90000-0000</td>
                 <td>
-                    <a href="perfil.html" class="btn">Ver</a>
+                    <a href="{{ url_for('perfil') }}" class="btn">Ver</a>
                 </td>
             </tr>
 
