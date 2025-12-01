@@ -129,9 +129,9 @@
 <nav>
     <div><strong>Ministerium</strong></div>
     <div>
-        <a href="index.html">Catálogo</a>
-        <a href="pre-cadastro.html">Pré-Cadastro</a>
-        <a href="admin.html">Admin</a>
+        <a href="{{ url_for('home') }}">Catálogo</a>
+        <a href="{{ url_for('pre_cadastro') }}">Pré-Cadastro</a>
+        <a href="{{ url_for('admin') }}">Admin</a>
     </div>
     <button onclick="toggleDarkMode()">🌙</button>
 </nav>
@@ -165,7 +165,7 @@
             <p>Especialista em casais e jovens.</p>
             <span class="tag">Casais</span>
             <span class="tag">Jovens</span>
-            <a class="btn" href="perfil.html">Ver Perfil</a>
+            <a class="btn" href="{{ url_for('perfil') }}">Ver Perfil</a>
         </div>
 
         <div class="card">
@@ -174,7 +174,7 @@
             <p>Louvor congregacional.</p>
             <span class="tag">Louvor</span>
             <span class="tag">Acústico</span>
-            <a class="btn" href="perfil.html">Ver Perfil</a>
+            <a class="btn" href="{{ url_for('perfil') }}">Ver Perfil</a>
         </div>
 
     </div>
